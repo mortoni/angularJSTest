@@ -1,0 +1,23 @@
+<div class="row">
+
+  <!-- MAP -->
+  <div class="col-md-8 col-xs-12">
+    <ng-map center="0,0" zoom="2" class="box map">
+      <marker ng-repeat="marker in $ctrl.markers track by $index"
+        id="{{$index}}"
+        position="{{marker.latitude}} {{marker.longitude}}"
+        title="marker.name"
+        animation="Animation.BOUNCE"
+        on-click="$ctrl.openDialog(event, marker, $ctrl.uibModal)">
+      </marker>
+    </ng-map>
+  </div>
+
+  <!-- MENU -->
+  <div class="col-md-4 col-xs-6">
+    <div class="box item" ng-repeat="marker in $ctrl.markers" ng-click="$ctrl.selectMarker(marker)">
+      <h3>{{marker.name}}</h3> 
+    </div>
+  </div>
+
+</div>
